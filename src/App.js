@@ -13,7 +13,7 @@ app.use(express.json({ exteng: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.use("/home", homeRoutes);
+app.use("/", homeRoutes);
 app.use("/", authRoutes);
 
 export default app;

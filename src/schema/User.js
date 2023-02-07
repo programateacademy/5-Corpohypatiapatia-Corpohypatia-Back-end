@@ -30,12 +30,20 @@ const userSchema = new Schema(
       ref: "Role",
       type: Schema.Types.ObjectId,
     },
+    enabled: {
+      type: Boolean,
+      default: true,
+    }
   },
   {
     timestamps: true,
     versionKey: false,
   }
 );
+
+userSchema.statics.compareRole = async (role, receiveRol) => {
+  return await (role == receiveRol);
+};
 
 userSchema.statics.encryptPassword = async (password) => {
   const salt = await bcrypt.genSalt(10);
