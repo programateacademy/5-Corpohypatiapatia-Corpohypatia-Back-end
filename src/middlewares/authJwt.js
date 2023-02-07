@@ -4,8 +4,7 @@ import Role from "../schema/Role.js";
 
 import { config } from "dotenv";
 config();
-const SECRET = process.env.SECRET
-
+const SECRET = process.env.SECRET;
 
 export const verifyToken = async (req, res, next) => {
   try {
@@ -26,14 +25,12 @@ export const verifyToken = async (req, res, next) => {
 
 export const isAdmin = async (req, res, next) => {
   const user = await User.findById(req.userId);
-  const roles = await Role.find({ _id: { $in: user.roles } });
+  const role = await Role.findOne({ _id: { $in: user.role } });
 
 
-  for (let i = 0; i < roles.length; i++) {
-    if (roles[i].name === "admin") {
-      next();
-      return;
-    }
+  if (role.name === "admin") {
+    next();
+    return;
   }
 
   return res.status(200).json({ message: "Require admin role" });
@@ -41,13 +38,11 @@ export const isAdmin = async (req, res, next) => {
 
 export const isUser = async (req, res, next) => {
   const user = await User.findById(req.userId);
-  const roles = await Role.find({ _id: { $in: user.roles } });
+  const role = await Role.findOne({ _id: { $in: user.role } });
 
-  for (let i = 0; i < roles.length; i++) {
-    if (roles[i].name === "user") {
-      next();
-      return;
-    }
+  if (role.name === "user") {
+    next();
+    return;
   }
 
   return res.status(200).json({ message: "Require user role" });
