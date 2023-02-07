@@ -1,9 +1,19 @@
-function App() {
-  return (
-    <div className="App">
-      <h1>Backend</h1>
-    </div>
-  );
-}
+import express from "express";
+import cors from "cors";
 
-export default App;
+import { createRoles } from "./libs/initialSetup.js";
+
+import authRoutes from "./routes/auth.routes.js";
+import homeRoutes from "./routes/home.routes.js";
+
+const app = express();
+await createRoles();
+
+app.use(express.json({ exteng: true }));
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+
+app.use("/home", homeRoutes);
+app.use("/", authRoutes);
+
+export default app;

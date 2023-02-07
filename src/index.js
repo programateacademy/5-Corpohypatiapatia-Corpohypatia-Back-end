@@ -1,9 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import app from "./App.js";
+import "./database/database.js"
+import { config } from "dotenv";
+config();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <App />
-);
+const PORT = process.env.PORT || 3000
+
+
+app.listen(PORT);
+console.log("server listen on port " + PORT);
