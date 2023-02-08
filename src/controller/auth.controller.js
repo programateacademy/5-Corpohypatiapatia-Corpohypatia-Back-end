@@ -2,6 +2,7 @@ import User from "../schema/User.js";
 import jwt from "jsonwebtoken";
 import Role from "../schema/Role.js";
 import UserControl from "../schema/UserControl.js";
+import LogonAttempts from "../schema/LogonAttempts.js";
 
 import { config } from "dotenv";
 config();
@@ -48,6 +49,9 @@ export const signIn = async (req, res) => {
 
   const matchRole = await User.compareRole(req.body.role, userFound.role.name);
 
+  if (!userFound.enabled)
+    return res.status(200).json({ message: "User is disabled" });
+
   if (!matchRole) return res.status(200).json({ message: "Invalid role" });
 
   const matchPassword = await User.comparePassword(
@@ -55,11 +59,37 @@ export const signIn = async (req, res) => {
     userFound.password
   );
 
-  if (!matchPassword)
-    return res.status(200).json({ message: "Invalid password" });
+  if (!matchPassword) {
+    const logonAttempts = await LogonAttempts.findOne({
+      user: userFound.email,
+    });
 
-  if (!userFound.enabled)
-    return res.status(200).json({ message: "User is disabled" });
+    if (!logonAttempts) {
+      const logonAttempt = new LogonAttempts({
+        user: userFound.email,
+        counter: 1,
+      });
+      await logonAttempt.save();
+    } else {
+      if (logonAttempts.counter >= 2) {
+        await User.updateOne(
+          { email: userFound.email },
+          { $set: { enabled: false } }
+        );
+      } else {
+        await LogonAttempts.updateOne(
+          { user: userFound.email },
+          { $inc: { counter: 1 } }
+        );
+      }
+    }
+
+    return res.status(200).json({ message: "Invalid password" });
+  }
+
+  await LogonAttempts.deleteMany({
+    user: userFound.email,
+  });
 
   const userControl = new UserControl({
     user: userFound.email,
