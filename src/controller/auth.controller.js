@@ -58,16 +58,16 @@ export const signIn = async (req, res) => {
   );
 
   // if the user does not exist
-  if (!userFound) return res.status(200).json({ message: "User not found" });
+  if (!userFound) return res.status(200).json({ message: "Usuario no encontrado." });
 
   // check that the rol match
   const matchRole = await User.compareRole(req.body.role, userFound.role.name);
 
   //check that the user is enabled
   if (!userFound.enabled)
-    return res.status(200).json({ message: "User is disabled" });
+    return res.status(200).json({ message: "El usuario está deshabilitado." });
 
-  if (!matchRole) return res.status(200).json({ message: "Invalid role" });
+  if (!matchRole) return res.status(200).json({ message: "Rol inválido" });
 
   // check that the rol match
   const matchPassword = await User.comparePassword(
@@ -107,7 +107,7 @@ export const signIn = async (req, res) => {
       }
     }
 
-    return res.status(200).json({ message: "Invalid password" });
+    return res.status(200).json({ message: "Contraseña invalida." });
   }
 
   // deletes the logs of failed attempts that the user has
