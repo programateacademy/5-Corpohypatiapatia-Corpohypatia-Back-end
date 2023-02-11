@@ -3,11 +3,24 @@ import jwt from "jsonwebtoken";
 import Role from "../schema/Role.js";
 import UserControl from "../schema/UserControl.js";
 import LogonAttempts from "../schema/LogonAttempts.js";
+import nodemailer from "nodemailer";
 
 // setting environment variables -- password encryption key
 import { config } from "dotenv";
 config();
 const SECRET = process.env.SECRET;
+const EMAIL = process.env.EMAIL;
+const PASSWORD = process.env.PASSWORD;
+
+// email config
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: EMAIL,
+    pass: PASSWORD,
+  },
+});
 
 export const signUp = async (req, res) => {
   // destructuring the request body
@@ -58,7 +71,8 @@ export const signIn = async (req, res) => {
   );
 
   // if the user does not exist
-  if (!userFound) return res.status(200).json({ message: "Usuario no encontrado." });
+  if (!userFound)
+    return res.status(200).json({ message: "Usuario no encontrado." });
 
   // check that the rol match
   const matchRole = await User.compareRole(req.body.role, userFound.role.name);
@@ -128,4 +142,87 @@ export const signIn = async (req, res) => {
 
   // respond with the created token
   res.status(200).json({ token });
+};
+
+// send email Link For reset Password
+export const sendPasswordLink = async (req, res) => {
+  console.log(req.body.email);
+  console.log(req.body);
+
+  const email = await req.body.email;
+
+  if (!email) {
+    return res.status(200).json({ message: "Ingresa un correo válido." });
+  }
+
+  try {
+    const userFound = await User.findOne({ email: req.body.email }).populate(
+      "role"
+    );
+
+    if (!userFound) {
+      return res.status(200).json({ message: "Ingresa un correo válido." });
+    }
+
+    // verify that the user is an administrator
+    if (!(userFound.role.name === "admin")) {
+      return res.status(200).json({ message: "Ingresa un correo válido." });
+    }
+
+    // token generate for reset password
+    const token = jwt.sign({ id: userFound._id }, SECRET, {
+      expiresIn: 3600, // 1 hour
+    });
+
+    const mailOptions = {
+      from: EMAIL,
+      /* to: email, */
+      to: "jlbejarano662@gmail.com",
+      subject: "Sending Email For password Reset",
+      text: `This Link Valid For 1 hour http://localhost:3000/change-password/${token}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log("error", error);
+        return res.status(200).json({ message: "El correo no fue enviado." });
+      } else {
+        console.log("Email sent", info.response);
+        return res.status(200).json({
+          status: 200,
+          message: "Correo fue enviado satisfactoriamente.",
+        });
+      }
+    });
+  } catch (error) {
+    return res.status(401).json({ status: 401, message: "Usuario inválido." });
+  }
+};
+
+// change password
+export const changePassword = async (req, res) => {
+  try {
+    const password = await req.body.password;
+    const id = req.userId;
+
+    const userFound = await User.findOne({ _id: id })
+
+
+
+    if (validuser && verifyToken._id) {
+      const newpassword = await bcrypt.hash(password, 12);
+
+      const setnewuserpass = await userdb.findByIdAndUpdate(
+        { _id: id },
+        { password: newpassword }
+      );
+
+      setnewuserpass.save();
+      res.status(201).json({ status: 201, setnewuserpass });
+    } else {
+      res.status(401).json({ status: 401, message: "user not exist" });
+    }
+  } catch (error) {
+    res.status(401).json({ status: 401, error });
+  }
 };

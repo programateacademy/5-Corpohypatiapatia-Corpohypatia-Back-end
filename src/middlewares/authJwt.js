@@ -10,12 +10,14 @@ const SECRET = process.env.SECRET;
 // check if token is valid
 export const verifyToken = async (req, res, next) => {
   try {
+    console.log(req.body);
     // extract the token provided by the request
     const token = req.headers["x-access-token"];
 
     if (!token) return res.status(200).json({ message: "No token provided" });
 
     // decodes the user id contained in the token
+    console.log(jwt.verify(token, SECRET));
     const decode = jwt.verify(token, SECRET);
     req.userId = decode.id;
 
