@@ -11,9 +11,9 @@ config();
 const SECRET = process.env.SECRET;
 const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
+const URL = process.env.URL;
 
 // email config
-
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -22,6 +22,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// login
 export const signUp = async (req, res) => {
   // destructuring the request body
   const { firstNames, lastNames, email, position, phone, password, role } =
@@ -62,6 +63,7 @@ export const signUp = async (req, res) => {
   res.status(200).json({ token });
 };
 
+// register a new user
 export const signIn = async (req, res) => {
   /**
    * search for the user that matches the email in the request body
@@ -146,8 +148,6 @@ export const signIn = async (req, res) => {
 
 // send email Link For reset Password
 export const sendPasswordLink = async (req, res) => {
-  console.log(req.body.email);
-  console.log(req.body);
 
   const email = await req.body.email;
 
@@ -176,10 +176,10 @@ export const sendPasswordLink = async (req, res) => {
 
     const mailOptions = {
       from: EMAIL,
-      /* to: email, */
-      to: "jlbejarano662@gmail.com",
+      to: email,
+      /* to: "jlbejarano662@gmail.com", */
       subject: "Sending Email For password Reset",
-      text: `This Link Valid For 1 hour http://localhost:3000/change-password/${token}`,
+      text: `Este Enlace es válido por 1 horas ${URL}/change-password/${token}`,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -190,7 +190,7 @@ export const sendPasswordLink = async (req, res) => {
         console.log("Email sent", info.response);
         return res.status(200).json({
           status: 200,
-          message: "Correo fue enviado satisfactoriamente.",
+          message: "El correo fue enviado satisfactoriamente.",
         });
       }
     });
@@ -203,25 +203,17 @@ export const sendPasswordLink = async (req, res) => {
 export const changePassword = async (req, res) => {
   try {
     const password = await req.body.password;
-    const id = req.userId;
+    const id = await req.userId;
 
-    const userFound = await User.findOne({ _id: id })
+    const newPassword = await User.encryptPassword(password);
+ 
+    const setnewuserpass = await User.findByIdAndUpdate(
+      { _id: id },
+      { password: newPassword }
+    );
+    setnewuserpass.save();
 
-
-
-    if (validuser && verifyToken._id) {
-      const newpassword = await bcrypt.hash(password, 12);
-
-      const setnewuserpass = await userdb.findByIdAndUpdate(
-        { _id: id },
-        { password: newpassword }
-      );
-
-      setnewuserpass.save();
-      res.status(201).json({ status: 201, setnewuserpass });
-    } else {
-      res.status(401).json({ status: 401, message: "user not exist" });
-    }
+    res.status(201).json({ message: "La contraseña se ha cambiado" });
   } catch (error) {
     res.status(401).json({ status: 401, error });
   }

@@ -10,24 +10,24 @@ const SECRET = process.env.SECRET;
 // check if token is valid
 export const verifyToken = async (req, res, next) => {
   try {
-    console.log(req.body);
     // extract the token provided by the request
     const token = req.headers["x-access-token"];
 
-    if (!token) return res.status(200).json({ message: "No token provided" });
+    if (!token)
+      return res.status(200).json({ message: "No se proporcionó token." });
 
     // decodes the user id contained in the token
-    console.log(jwt.verify(token, SECRET));
     const decode = jwt.verify(token, SECRET);
     req.userId = decode.id;
 
     // check that the user exists
     const user = await User.findById(req.userId, { password: 0 });
-    if (!user) return res.status(200).json({ message: "no user found" });
+    if (!user)
+      return res.status(200).json({ message: "Ningún usuario encontrado." });
 
     next();
   } catch (error) {
-    return res.status(200).json({ message: "Unauthorized" });
+    return res.status(200).json({ message: "No autorizado." });
   }
 };
 
@@ -42,5 +42,5 @@ export const isAdmin = async (req, res, next) => {
     return;
   }
 
-  return res.status(200).json({ message: "Require admin role" });
+  return res.status(200).json({ message: "Requerir rol de administrador" });
 };
