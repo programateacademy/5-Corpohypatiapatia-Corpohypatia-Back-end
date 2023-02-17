@@ -10,6 +10,7 @@ export const addProject = async (request, response) => {
     try {
         await newProject.save();
         response.status(201).json(newProject);
+        // console.log("exito")
     } catch (e) {
         response.status(409).json({message: e.message});
     }

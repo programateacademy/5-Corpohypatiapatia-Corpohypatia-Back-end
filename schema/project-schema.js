@@ -1,22 +1,27 @@
 import mongoose from "mongoose";
 
+// const objectiveSchema = new mongoose.Schema({
+//     field1: String,
+//     field2: String
+// });
+
 const projectSchema = mongoose.Schema({
-    
+
     project_title:{
         type: String,
-        required: true
+        // required: true
     },
     project_location:{
         type: String,
-        required: true
+        // required: true
     },
     project_duration:{
         type: String,
-        required: true
+        // required: true
     },
     project_budget:{
         type: String,
-        required: true
+        // required: true
     },
     intervention_sector:{
         type: String,
@@ -24,19 +29,19 @@ const projectSchema = mongoose.Schema({
     },
     imagePath:{
         type: String,
-        required: true,
+        // required: true,
     },
     problematic_summary:{
         type: String,
-        required: true
+        // required: true
     },
     beneficiaries:{
         type: String,
-        required: true
+        // required: true
     },
     executive_summary:{
         type: String,
-        required: true
+        // required: true
     },
     alignment:{
         type: String,
@@ -44,15 +49,18 @@ const projectSchema = mongoose.Schema({
     },
     methodology_summary:{
         type: String,
-        required: true
+        // required: true
     },
     general_objetive:{
         type: String,
-        required: true
+        // required: true
     },
     specific_objectives:{
-        type: Array,
+        type: [String], 
         required: true
+        // [objectiveSchema]
+        // type: Array,
+        // required: true
     },
     experience:{
         type: String

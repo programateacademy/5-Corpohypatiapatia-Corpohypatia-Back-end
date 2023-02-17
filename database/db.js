@@ -7,7 +7,7 @@ import {mongoose} from "mongoose";
 const Connection = async (username, password) => {
     //link where contains the databases
     //The link contains reserved words username and password
-    const URL = `mongodb+srv://${username}:${password}@corpohypatia.skccri8.mongodb.net/projects?retryWrites=true&w=majority`;
+    const URL = `mongodb+srv://${username}:${password}@corpohypatia.skccri8.mongodb.net/?retryWrites=true&w=majority`;
 
     //First, the code in try is executed
     //if there were no errors,catch execution is ignored
