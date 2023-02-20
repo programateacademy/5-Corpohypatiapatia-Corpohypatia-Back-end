@@ -9,7 +9,7 @@ import homeRoutes from "./routes/home.routes.js";
 const app = express();
 await createRoles();
 
-app.use(express.json({ exteng: true }));
+app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
