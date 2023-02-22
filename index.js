@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import Connection from './database/db.js';
 import Routes from './routes/route.js';
 
+
 const app = express();
 
 dotenv.config();
@@ -14,7 +15,8 @@ app.use(bodyParser.json({exteng: true}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
-app.use('/', Routes);
+//app.use('/', Routes);
+app.use('/users', Routes);
 
 const PORT = 8000;
 
