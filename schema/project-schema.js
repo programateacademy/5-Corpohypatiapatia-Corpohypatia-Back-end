@@ -1,10 +1,5 @@
 import mongoose from "mongoose";
 
-// const objectiveSchema = new mongoose.Schema({
-//     field1: String,
-//     field2: String
-// });
-
 const projectSchema = mongoose.Schema({
 
     project_title:{
@@ -25,7 +20,7 @@ const projectSchema = mongoose.Schema({
     },
     intervention_sector:{
         type: String,
-        required: true
+        // required: true
     },
     imagePath:{
         type: String,
@@ -45,7 +40,7 @@ const projectSchema = mongoose.Schema({
     },
     alignment:{
         type: String,
-        required: true
+        // required: true
     },
     methodology_summary:{
         type: String,
@@ -55,13 +50,11 @@ const projectSchema = mongoose.Schema({
         type: String,
         // required: true
     },
-    specific_objectives:{
-        type: [String], 
-        required: true
-        // [objectiveSchema]
-        // type: Array,
-        // required: true
-    },
+    specific_objectives:[
+        {
+            type:String
+        }
+    ],
     experience:{
         type: String
     },

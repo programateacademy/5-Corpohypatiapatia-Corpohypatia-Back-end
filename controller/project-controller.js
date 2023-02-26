@@ -54,7 +54,7 @@ export const editProject = async (request, response) => {
 export const deleteProject = async (request, response) => {
     try {
         await Project.deleteOne({_id: request.params.id});
-        response.status(200).json({message: 'Pelicula borrada de manera exitosa'});
+        response.status(200).json({message: 'Projecto eliminado de manera exitosa'});
     } catch (e) {
         response.status(409).json({message: e.message});
     }

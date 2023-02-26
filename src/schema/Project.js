@@ -4,56 +4,56 @@ const projectSchema = new Schema(
     {
         project_title:{
             type: String,
-            required: true
+            // required: true
         },
         project_location:{
             type: String,
-            required: true
+            // required: true
         },
         project_duration:{
             type: String,
-            required: true
+            // required: true
         },
         project_budget:{
             type: String,
-            required: true
+            // required: true
         },
         intervention_sector:{
             type: String,
-            required: true
+            // required: true
         },
         imagePath:{
             type: String,
-            required: true,
-            default:'https://fondolunaria.org/wp-content/uploads/2019/01/Corporacion-Hypatia-web.jpg'
+            // required: true,
+            // default:'https://fondolunaria.org/wp-content/uploads/2019/01/Corporacion-Hypatia-web.jpg'
         },
         problematic_summary:{
             type: String,
-            required: true
+            // required: true
         },
         beneficiaries:{
             type: String,
-            required: true
+            // required: true
         },
         executive_summary:{
             type: String,
-            required: true
+            // required: true
         },
         alignment:{
             type: String,
-            required: true
+            // required: true
         },
         methodology_summary:{
             type: String,
-            required: true
+            // required: true
         },
         general_objetive:{
             type: String,
-            required: true
+            // required: true
         },
         specific_objectives:{
             type: Array,
-            required: true
+            // required: true
         },
         experience:{
             type: String
