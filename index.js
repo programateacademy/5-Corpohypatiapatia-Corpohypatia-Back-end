@@ -14,6 +14,8 @@ app.use(bodyParser.json({exteng: true}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
+// app.use('/public', express.static(`${__dirname}/storage/imgs`))
+
 app.use('/', Routes);
 
 const PORT = 8000;

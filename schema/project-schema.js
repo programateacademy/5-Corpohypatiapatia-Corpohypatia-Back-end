@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+// import {appConfig} from "../config"
 
 const projectSchema = mongoose.Schema({
 
@@ -65,6 +66,12 @@ const projectSchema = mongoose.Schema({
         type: String
     }
 });
+
+// projectSchema.methods.setImagePath = function setImagePath (filename){
+//     const host = 'http://localhost'
+//     const port = 8000
+//     this.imagePath = `${host}:${port}/public/${filename}`
+// }
 
 const project = mongoose.model('project', projectSchema);
 

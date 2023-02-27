@@ -7,6 +7,11 @@ export const addProject = async (request, response) => {
 
     const newProject = new Project(project);
 
+    // if (req.file){
+    //     const {filename} = req.file
+    //     Project.setPathImage(filename)
+    // }
+
     try {
         await newProject.save();
         response.status(201).json(newProject);
