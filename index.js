@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 
 import Connection from './database/db.js';
 import Routes from './routes/route.js';
+import RoutesUsers from './routes/routeUser.js'
 
 
 const app = express();
@@ -15,8 +16,9 @@ app.use(bodyParser.json({exteng: true}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 
-//app.use('/', Routes);
-app.use('/users', Routes);
+app.use('/users/', RoutesUsers);
+app.use('/', Routes);
+
 
 const PORT = 8000;
 
