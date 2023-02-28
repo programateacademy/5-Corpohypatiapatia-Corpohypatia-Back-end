@@ -56,6 +56,16 @@ const projectSchema = mongoose.Schema({
             type:String
         }
     ],
+    result:[
+        {
+            type:String
+        }
+    ],
+    // result_activities:[
+    //     {
+    //         type:String
+    //     }
+    // ],
     experience:{
         type: String
     },
