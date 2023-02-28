@@ -1,5 +1,5 @@
 import { request, response } from "express";
-import Project from "../schema/project-schema.js";
+import Project from "../schema/Project.js";
 
 //Function to add a project
 export const addProject = async (request, response) => {

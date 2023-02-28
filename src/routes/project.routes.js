@@ -6,7 +6,7 @@ import upload from '../libs/storage.js'
 
 
 //import properties called from the controller
-import { addProject, getProjects, getProject, editProject, deleteProject} from '../controller/project-controller.js';
+import { addProject, getProjects, getProject, editProject, deleteProject} from '../controller/project.controller.js';
 
 //const variable will contain the methods of the routes
 const router = express.Router();

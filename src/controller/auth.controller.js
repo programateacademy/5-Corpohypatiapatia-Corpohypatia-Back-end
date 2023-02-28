@@ -206,7 +206,7 @@ export const changePassword = async (req, res) => {
     const id = await req.userId;
 
     const newPassword = await User.encryptPassword(password);
- 
+
     const setnewuserpass = await User.findByIdAndUpdate(
       { _id: id },
       { password: newPassword }
