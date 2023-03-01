@@ -148,7 +148,6 @@ export const signIn = async (req, res) => {
 
 // send email Link For reset Password
 export const sendPasswordLink = async (req, res) => {
-
   const email = await req.body.email;
 
   if (!email) {
@@ -181,7 +180,6 @@ export const sendPasswordLink = async (req, res) => {
       subject: "Sending Email For password Reset",
       text: `Este Enlace es válido por 1 horas ${URL}/change-password/${token}`,
     };
-
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log("error", error);
@@ -206,7 +204,7 @@ export const changePassword = async (req, res) => {
     const id = await req.userId;
 
     const newPassword = await User.encryptPassword(password);
- 
+
     const setnewuserpass = await User.findByIdAndUpdate(
       { _id: id },
       { password: newPassword }
