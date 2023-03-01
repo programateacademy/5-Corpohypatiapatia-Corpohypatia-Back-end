@@ -3,76 +3,83 @@ import mongoose from "mongoose";
 
 const projectSchema = mongoose.Schema({
 
-    project_title:{
+    project_title: {
         type: String,
         // required: true
     },
-    project_location:{
+    project_location: {
         type: String,
         // required: true
     },
-    project_duration:{
+    project_duration: {
         type: String,
         // required: true
     },
-    project_budget:{
+    project_budget: {
         type: String,
         // required: true
     },
-    intervention_sector:{
+    intervention_sector: {
         type: String,
         // required: true
     },
-    imagePath:{
+    imagePath: {
         type: String,
         // required: true,
     },
-    problematic_summary:{
+    problematic_summary: {
         type: String,
         // required: true
     },
-    beneficiaries:{
+    beneficiaries: {
         type: String,
         // required: true
     },
-    executive_summary:{
+    executive_summary: {
         type: String,
         // required: true
     },
-    alignment:{
+    alignment: {
         type: String,
         // required: true
     },
-    methodology_summary:{
+    methodology_summary: {
         type: String,
         // required: true
     },
-    general_objetive:{
+    general_objetive: {
         type: String,
         // required: true
     },
-    specific_objectives:[
+    specific_objectives: [
         {
-            type:String
+            type: String
         }
     ],
-    result:[
+    results: [
         {
-            type:String
+            result: {
+                type: String,
+            },
+            indicators:[
+                {
+                    type:String
+                }
+            ],
+            activities: [
+                {
+                    type:String
+                }
+            ]
         }
     ],
-    // result_activities:[
-    //     {
-    //         type:String
-    //     }
-    // ],
-    experience:{
+    experience: {
         type: String
     },
-    sustainability:{
+    sustainability: {
         type: String
     },
-    exit_strategy:{
+    exit_strategy: {
         type: String
     }
 });
