@@ -59,7 +59,10 @@ const projectSchema = mongoose.Schema({
     results: [
         {
             result: {
-                type: String,
+                type: String
+            },
+            percentage:{
+                type: Number
             },
             indicators:[
                 {
@@ -68,7 +71,12 @@ const projectSchema = mongoose.Schema({
             ],
             activities: [
                 {
-                    type:String
+                    description: {
+                        type: String
+                    },
+                    completed :{
+                        type: Boolean
+                    }
                 }
             ]
         }
