@@ -1,5 +1,5 @@
 const express = require('express')
-const dataSchema = require('../schema/data')
+const dataSchema = require('../schema/entity')
 
 const router = express.Router();
 
