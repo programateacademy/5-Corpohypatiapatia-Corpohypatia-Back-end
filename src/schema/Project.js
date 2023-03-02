@@ -98,6 +98,6 @@ const projectSchema = mongoose.Schema({
 //     this.imagePath = `${host}:${port}/public/${filename}`
 // }
 
-const project = mongoose.model('project', projectSchema);
+const project = mongoose.model('Project', projectSchema);
 
 export default project;
