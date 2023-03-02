@@ -62,7 +62,7 @@ const projectSchema = mongoose.Schema({
                 type: String
             },
             percentage:{
-                type: Number
+                type: String
             },
             indicators:[
                 {
@@ -81,6 +81,9 @@ const projectSchema = mongoose.Schema({
             ]
         }
     ],
+    project_percentage:{
+        type: String
+    },
     experience: {
         type: String
     },
@@ -89,6 +92,9 @@ const projectSchema = mongoose.Schema({
     },
     exit_strategy: {
         type: String
+    },
+    enabled:{
+        type: Boolean
     }
 });
 
