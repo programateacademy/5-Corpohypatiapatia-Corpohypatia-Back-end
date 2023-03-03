@@ -1,6 +1,7 @@
 import app from "./App.js";
 import "./database/database.js"
 
+
 // setting environment variables -- Port
 import { config } from "dotenv";
 config();
