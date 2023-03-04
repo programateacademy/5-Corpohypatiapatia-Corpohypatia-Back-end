@@ -14,7 +14,15 @@ await createRoles();
 
 app.use(express.json({ exteng: true }));
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(
+    cors({
+        origin: "https://5-corpohypatiapatia-corpohypatia-front-end.vercel.app",
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        credentials: true,
+        preflightContinue: false,
+        optionsSuccessStatus: 204,
+    })
+);
 
 app.use("/", homeRoutes);
 app.use("/", authRoutes);

@@ -2,10 +2,10 @@
   "name": "corpohypatia-backend",
   "version": "1.0.0",
   "description": "REST API",
-  "main": "./src/index.js",
+  "main": "./index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon ./src/index.js"
+    "start": "nodemon ./index.js"
   },
   "keywords": [],
   "author": "jlbi",
