@@ -1,6 +1,7 @@
+import mongoose from 'mongoose';
+import { Project } from './models/project.js';
 import { request, response } from "express";
-import Project from "../schema/Project.js";
-
+import Project from "../schema/Project.js"
 //Function to add a project
 export const addProject = async (request, response) => {
     const project = request.body;
@@ -65,11 +66,12 @@ export const deleteProject = async (request, response) => {
     }
 }
 
-export const viewUser = async (request, response) =>{
-    try {
-        const projects = await Project.find({});
-        response.status(200).json(projects);
-    } catch (e) {
-        response.status(404).json({message: e.message});
-    }
-}
+export const viewUser = async (request, response) => {
+  try {
+    const Project = mongoose.model('Project', projectSchema);
+    const projects = await Project.find({});
+    response.status(200).json(projects);
+  } catch (e) {
+    response.status(404).json({ message: e.message });
+  }
+};
