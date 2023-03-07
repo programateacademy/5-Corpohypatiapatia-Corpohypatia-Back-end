@@ -6,6 +6,7 @@ import { createRoles } from "./libs/initialSetup.js";
 import authRoutes from "./routes/auth.routes.js";
 import homeRoutes from "./routes/home.routes.js";
 import projectRoutes from "./routes/project.routes.js";
+import allProjects from "./routes/all.project.js";
 import RoutesUsers from './routes/routeUser.js'
 import entidadroutes from "./controller/form.controller.js"
 const app = express();
@@ -23,7 +24,7 @@ app.use(
         optionsSuccessStatus: 204,
     })
 );
-
+app.use("/projects", allProjects);
 app.use("/", homeRoutes);
 app.use("/", authRoutes);
 app.use("/project", projectRoutes);
