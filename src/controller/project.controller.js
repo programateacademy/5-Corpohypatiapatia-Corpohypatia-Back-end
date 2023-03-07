@@ -70,6 +70,7 @@ export const viewUser = async (request, response) => {
   try {
     const Project = mongoose.model('Project', projectSchema);
     const projects = await Project.find({});
+      .select('project_title project_location project_duration imagePath problematic_summary beneficiaries general_objetive experience');
     response.status(200).json(projects);
   } catch (e) {
     response.status(404).json({ message: e.message });
