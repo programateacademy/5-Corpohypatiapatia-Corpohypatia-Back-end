@@ -1,5 +1,5 @@
-import app from "./App.js";
-import "./database/database.js"
+import app from "./src/App.js";
+import "./src/database/database.js"
 
 
 // setting environment variables -- Port
