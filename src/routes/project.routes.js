@@ -27,7 +27,7 @@ router.post(
 // router.post('/add', upload.single('imagePath'), (req, res) => {
 //     addProject
 //     const imagePath = req.file.filename;
-//     // guardar los datos en la base de datos o hacer cualquier otra operación
+//     // save the data in the database or perform any other operation
 //     res.send('¡Formulario enviado con éxito!');
 // });
 router.get("", authJwt.verifyToken, getProjects);
