@@ -44,17 +44,17 @@ Existen prácticas y concepciones que perpetúan condiciones de desventaja educa
 
 * <h4>Descripción del problema</h4>
 
-No se cuenta con una herramienta divulgativa y de seguimiento del Proyecto. Esto genera como efecto que no se haya logrado una mayor articulación y presencia en      los 5 barrios del proyecto, en consecuencia, la oferta institucional para responder a los requerimientos de apoyo a NN y sus familias es muy limitada. Del total de población diana del proyecto, solo el 20% de las familias reciben apoyos de programas institucionales cómo familias en acción. De igual forma dentro de las 25 entidades gubernamentales responsables de la garantía de derechos a nivel municipal solo 7 están incidiendo en los barrios con intervenciones directas en beneficio de la población diana.
+  No se cuenta con una herramienta divulgativa y de seguimiento del Proyecto. Esto genera como efecto que no se haya logrado una mayor articulación y presencia en      los 5 barrios del proyecto, en consecuencia, la oferta institucional para responder a los requerimientos de apoyo a NN y sus familias es muy limitada. Del total de población diana del proyecto, solo el 20% de las familias reciben apoyos de programas institucionales cómo familias en acción. De igual forma dentro de las 25 entidades gubernamentales responsables de la garantía de derechos a nivel municipal solo 7 están incidiendo en los barrios con intervenciones directas en beneficio de la población diana.
 
 * <h4>Público objetivo</h4>
 
-El público administrador sería el equipo técnico del proyecto y estaría
+  El público administrador sería el equipo técnico del proyecto y estaría
 dirigido a la población en general, cómo medio divulgativo e
 informativo y que sirva para los fines de seguimiento.
 
 * <h4>Impacto esperadoo</h4>
 
-Los resultados esperados es poder disponer de una herramienta de
+  Los resultados esperados es poder disponer de una herramienta de
 seguimiento y monitoreo a los avances del proyecto.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
