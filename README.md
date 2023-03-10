@@ -101,7 +101,7 @@ Para la estructura de carpetas se utilizo el patron de diseño MVC lo que signif
 
 * Routes
 
- Utilizamos la carpetalos Routes para separar la definición de las rutas de la lógica de los controladores, y así mantener una mejor organización de la aplicación.
+  Utilizamos la carpetalos Routes para separar la definición de las rutas de la lógica de los controladores, y así mantener una mejor organización de la aplicación.
 
 * (Models)Schemas
 
