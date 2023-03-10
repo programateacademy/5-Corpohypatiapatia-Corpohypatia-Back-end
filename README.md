@@ -62,6 +62,8 @@ seguimiento y monitoreo a los avances del proyecto.
 Esta sección tiene una lista de los principales frameworks/librerias/dependencias que se utilizaron para construir este proyecto.
 
 * <a href="https://nodejs.org/es/">![image](https://user-images.githubusercontent.com/50422794/215834151-4c767188-7bfa-406e-9967-9c07dc4f737f.png)</a>
+* <a href="https://jestjs.io/">![image](https://user-images.githubusercontent.com/50422794/224225170-f7d40b73-9d04-4cca-9403-ba8ba0ebb9f8.png)</a>
+* <a href="https://testing-library.com/">![image](https://user-images.githubusercontent.com/50422794/224225264-65731555-859b-412f-89df-660d357c92db.png)</a>
 * <a href="https://expressjs.com/es/">![image](https://user-images.githubusercontent.com/50422794/224217240-545381c4-9cbe-4e57-a68f-46e957f42e96.png)</a>
 * <a href="https://www.mongodb.com/">![image](https://user-images.githubusercontent.com/50422794/224217313-3bc5280e-8bec-469f-b245-c16757261950.png)</a>
 * <a href="https://www.npmjs.com/package/bcryptjs">![image](https://user-images.githubusercontent.com/50422794/224215696-3472debe-fcc5-4d5f-9ecb-206a804da505.png)</a>
@@ -77,36 +79,36 @@ Esta sección tiene una lista de los principales frameworks/librerias/dependenci
 
 ## Estructura de carpetas
 
-Para la estructura de carpetas se utilizo el patron de diseño MVC lo que significa Modelo - Vista - Controlador (Por obvias razones, la vista no aparece en esta estructura de carpetas, ya que se encuentra en la parte del frontend)
+Para la estructura de carpetas se utilizo el patron de diseño MVC lo que significa Modelo(Model) - Vista(View) - Controlador(Controller) (Por obvias razones, la vista no aparece en esta estructura de carpetas, ya que se encuentra en la parte del frontend)
 
 ![image](https://user-images.githubusercontent.com/50422794/224220711-c70679b4-041f-45bb-921d-dfd55930a8ad.png)
 
 * Controllers
 
-  El controlador es el intermediario entre el modelo y la vista. Es el encargado de recibir las solicitudes del usuario, procesarlas y enviar la respuesta correspondiente. En una aplicación Node.js con Express, el controlador se puede implementar utilizando una serie de rutas que se definen en el archivo app.js.
+  Utilizamos la carpeta Controller para hacer de intermediario entre el modelo y la vista. Es el encargado de recibir las solicitudes del usuario, procesarlas y enviar la respuesta correspondiente. En una aplicación Node.js con Express, el controlador se implementó utilizando una serie de rutas que se definen en el archivo app.js.
 
 * DataBases
 
-  Se utiliza para guardar archivos de bases de datos o archivos de configuración de bases de datos para distintos entornos, así como otros archivos relacionados con bases de datos que no encajen en ninguna otra carpeta de la aplicación.
+  Utilizamos la carpeta DataBases para guardar archivos de configuración de bases de datos para tener un mejor control en las variables de entorno
 
 * Libraries
 
-  Se utiliza para incluir módulos o paquetes personalizados que se utilizan en varias partes de la aplicación, así como archivos de configuración o utilidad que no encajan en ninguna otra carpeta de la aplicación. Sin embargo, el nombre y uso de esta carpeta puede variar según la preferencia del desarrollador o equipo de desarrollo.
+  Utilizamos la carpeta Libraries para incluir módulos y/o paquetes personalizados que utilizamos en varias partes de la aplicación, así como archivos de configuración o utilidad que no encajan en ninguna otra carpeta de la aplicación. Sin embargo, el nombre y uso de esta carpeta puede variar según la preferencia del desarrollador o equipo de desarrollo.
 
 * Middlewares
 
-  los middlewares son funciones muy útiles en las aplicaciones Node.js con Express, ya que permiten realizar tareas importantes antes o después de que se procesen las solicitudes de los usuarios. Se pueden definir a nivel de aplicación, enrutador o ruta, según las necesidades específicas de la aplicación.
+  Utilizamos la carpetalos Middlewares ya que nos permitieron realizar tareas importantes antes o después de que se procesen las solicitudes de los usuarios. Se pueden definir a nivel de aplicación, enrutador o ruta, según las necesidades específicas de la aplicación.
 
 * Routes
 
-  Se utilizan para separar la definición de las rutas de la lógica de los controladores, y así mantener una mejor organización de la aplicación.
+ Utilizamos la carpetalos Routes para separar la definición de las rutas de la lógica de los controladores, y así mantener una mejor organización de la aplicación.
 
 * (Models)Schemas
 
-  El modelo representa la estructura de datos de la aplicación. Tomando como ejemplo esta aplicacion hecha con Node.js y Express, el modelo se puede implementar utilizando una base de datos como MongoDB(Base de datos no relacional) o MySQL(Base de datos relacional).
+  Utilizamos la carpetalos para representar la estructura de datos de la aplicación. Ya que esta aplicacion fue hecha con Node.js y Express, el modelo se implemento utlizando una base de datos relacional MONGODB
 
 * App.js
 
-  En este archivo se definen las rutas de la aplicación utilizando el método de enrutamiento de Express.
+  En este archivo definimos las rutas de la aplicación utilizando el método de enrutamiento de Express.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
