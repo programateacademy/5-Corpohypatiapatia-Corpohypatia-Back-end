@@ -43,19 +43,24 @@ Existen prácticas y concepciones que perpetúan condiciones de desventaja educa
 * <h4>Descripción del problema</h4>
 
   No se cuenta con una herramienta divulgativa y de seguimiento del Proyecto. Esto genera como efecto que no se haya logrado una mayor articulación y presencia en      los 5 barrios del proyecto, en consecuencia, la oferta institucional para responder a los requerimientos de apoyo a NN y sus familias es muy limitada. Del total de población diana del proyecto, solo el 20% de las familias reciben apoyos de programas institucionales cómo familias en acción. De igual forma dentro de las 25 entidades gubernamentales responsables de la garantía de derechos a nivel municipal solo 7 están incidiendo en los barrios con intervenciones directas en beneficio de la población diana.
+  
+* <h4>Objetivo</h4>
+
+  Nuestro objetivo es desarrollar una aplicacion web que permita realizar el seguimiento Gestión de  proyectos y divulgación de la información de los proyectos.
 
 * <h4>Público objetivo</h4>
 
-  El público administrador sería el equipo técnico del proyecto y estaría
-dirigido a la población en general, cómo medio divulgativo e
-informativo y que sirva para los fines de seguimiento.
+  El público administrador sería el equipo técnico del proyecto y estaría dirigido a la población en general, cómo medio divulgativo e informativo y que sirva para los fines de seguimiento.
 
 * <h4>Impacto esperadoo</h4>
 
-  Los resultados esperados es poder disponer de una herramienta de
-seguimiento y monitoreo a los avances del proyecto.
+  Los resultados esperados es poder disponer de una herramienta de seguimiento y monitoreo a los avances del proyecto.
+
+* <h4>Alcance</h4>
+  En este desarrollo de Corpohypatia se pretende diseñar y desarrollar una aplicación orientada al desarrollo a la  web, la cual permita visualizar el diseño del desarrollo de Gestion de proyectos en  donde pueda manipular ciertos elementos del desarrollo productivo.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Construccion de la aplicacion
 
