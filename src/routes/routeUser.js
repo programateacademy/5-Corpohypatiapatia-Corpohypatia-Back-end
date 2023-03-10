@@ -2,7 +2,7 @@
 import express from 'express';
 
 //import properties called from the controller
-import { createUser, deleteUser, getAllUsers, getUser, updateUser } from "../controller/UsersController.js";
+import { createUser, deleteUser, getAllUsers, getUser, updateUser } from "../controller/users.controller.js";
 
 
 //const variable will contain the methods of the routes
