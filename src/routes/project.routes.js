@@ -1,8 +1,6 @@
 //routes method
 //import instance of express
 import express from "express";
-// const upload = require('../libs/storage.js')
-import upload from "../libs/storage.js";
 
 import * as authJwt from "../middlewares/authJwt.js";
 
@@ -21,15 +19,9 @@ const router = express.Router();
 // router.post('/add', upload.upload, upload.uploadFile)
 router.post(
   "/add",
-  upload.single("imagePath"),
   addProject
 );
-// router.post('/add', upload.single('imagePath'), (req, res) => {
-//     addProject
-//     const imagePath = req.file.filename;
-//     // guardar los datos en la base de datos o hacer cualquier otra operación
-//     res.send('¡Formulario enviado con éxito!');
-// });
+
 router.get("", authJwt.verifyToken, getProjects);
 router.get("/:id", authJwt.verifyToken, getProject);
 router.put("/:id", authJwt.verifyToken, editProject);
