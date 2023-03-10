@@ -109,7 +109,7 @@ Para la estructura de carpetas se utilizo el patron de diseño MVC lo que signif
 
 * App.js
 
-  En el archivo app.js, define las rutas de tu aplicación utilizando el método de enrutamiento de Express.
+  En este archivo se definen las rutas de la aplicación utilizando el método de enrutamiento de Express.
 
 
 
