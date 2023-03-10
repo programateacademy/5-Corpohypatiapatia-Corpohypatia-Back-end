@@ -44,7 +44,7 @@ Existen prácticas y concepciones que perpetúan condiciones de desventaja educa
 
 * <h4>Descripción del problema</h4>
 
-No sé cuenta con una herramienta divulgativa y de seguimiento del Proyecto. Esto genera como efecto que no se haya logrado una mayor articulación y presencia en      los 5 barrios del proyecto, en consecuencia, la oferta institucional para responder a los requerimientos de apoyo a NN y sus familias es muy limitada. Del total de población diana del proyecto, solo el 20% de las familias reciben apoyos de programas institucionales cómo familias en acción. De igual forma dentro de las 25 entidades gubernamentales responsables de la garantía de derechos a nivel municipal solo 7 están incidiendo en los barrios con intervenciones directas en beneficio de la población diana.
+No se cuenta con una herramienta divulgativa y de seguimiento del Proyecto. Esto genera como efecto que no se haya logrado una mayor articulación y presencia en      los 5 barrios del proyecto, en consecuencia, la oferta institucional para responder a los requerimientos de apoyo a NN y sus familias es muy limitada. Del total de población diana del proyecto, solo el 20% de las familias reciben apoyos de programas institucionales cómo familias en acción. De igual forma dentro de las 25 entidades gubernamentales responsables de la garantía de derechos a nivel municipal solo 7 están incidiendo en los barrios con intervenciones directas en beneficio de la población diana.
 
 * <h4>Público objetivo</h4>
 
@@ -61,7 +61,7 @@ seguimiento y monitoreo a los avances del proyecto.
 
 ## Construccion de la aplicacion
 
-Esta sección tiene una lista de los principales frameworks/librerias/dependencias que se utilizaron para construir este proyecto proyecto.
+Esta sección tiene una lista de los principales frameworks/librerias/dependencias que se utilizaron para construir este proyecto.
 
 * <a href="https://nodejs.org/es/">![image](https://user-images.githubusercontent.com/50422794/215834151-4c767188-7bfa-406e-9967-9c07dc4f737f.png)</a>
 * <a href="https://expressjs.com/es/">![image](https://user-images.githubusercontent.com/50422794/224217240-545381c4-9cbe-4e57-a68f-46e957f42e96.png)</a>
