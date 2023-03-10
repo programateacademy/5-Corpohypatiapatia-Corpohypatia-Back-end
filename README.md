@@ -7,7 +7,7 @@
   
 
 
-  <h2 align="center">CORPOHYPATIA</h2>
+  <h1 align="center">CORPOHYPATIA</h1>
 
   <p align="center">
     <br />
