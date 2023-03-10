@@ -1,7 +1,5 @@
 <a name="readme-top"></a>
 
-
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
   
@@ -10,6 +8,8 @@
   <h1 align="center">CORPOHYPATIA</h1>
 
   <p align="center">
+    Documentación BACKEND
+    <br />
     <br />
     <a href="https://5-corpohypatiapatia-corpohypatia-front-end.vercel.app/">Despligue de la aplicación</a>
     <br />
@@ -27,7 +27,6 @@
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -37,7 +36,6 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
 ## Acerca del proyecto
 
 Existen prácticas y concepciones que perpetúan condiciones de desventaja educativa, económica y social para las mujeres, la infancia y la adolescencia. En particular en municipios como Bucaramanga esta situación se ha recrudecido con riesgos de desescolarización, consumo de SPA e instrumentalización y explotación sexual y con fines comerciales y delincuenciales de Niños y Niñas. Adicionalmente contextos marcados por la desestructuración familiar, violencias domésticas y comunitaria. Actualmente se adelanta el Proyecto Sent Pensar La vida, estrategia de educación emocional con 250 niñas y niñas y 165 madres y cuidadoras en 5 barrios de la ciudad de Bucaramanga. Este proyecto contiene 4 resultados básicos, 1 sobre levantamiento de línea de base con población diana. 2 Una estrategia con N, 3 Una estrategia con madres y cuidadores y un 4to resultado con instituciones públicas y privadas, entre ellos actores comunitarios. Previamente se realizó una intervención de prevención de consumo de SPA con NN y jóvenes de estos barrios. Se avanzó en lograr articulación interinstitucional para asegurar rutas de atención de casos.
