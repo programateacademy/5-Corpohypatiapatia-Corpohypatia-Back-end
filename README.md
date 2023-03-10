@@ -102,15 +102,15 @@ Para la estructura de carpetas se utilizo el patron de diseño MVC lo que signif
 
 * Middlewares
 
-  Utilizamos la carpetalos Middlewares ya que nos permitieron realizar tareas importantes antes o después de que se procesen las solicitudes de los usuarios. Se pueden definir a nivel de aplicación, enrutador o ruta, según las necesidades específicas de la aplicación.
+  Utilizamos la carpeta Middlewares ya que nos permitieron realizar tareas importantes antes o después de que se procesen las solicitudes de los usuarios. Se pueden definir a nivel de aplicación, enrutador o ruta, según las necesidades específicas de la aplicación.
 
 * Routes
 
-  Utilizamos la carpetalos Routes para separar la definición de las rutas de la lógica de los controladores, y así mantener una mejor organización de la aplicación.
+  Utilizamos la carpeta Routes Routes para separar la definición de las rutas de la lógica de los controladores, y así mantener una mejor organización de la aplicación.
 
 * (Models)Schemas
 
-  Utilizamos la carpetalos para representar la estructura de datos de la aplicación. Ya que esta aplicacion fue hecha con Node.js y Express, el modelo se implemento utlizando una base de datos relacional MONGODB
+  Utilizamos la carpeta Schemas para representar la estructura de datos de la aplicación. Ya que esta aplicacion fue hecha con Node.js y Express, el modelo se implemento utlizando una base de datos relacional MONGODB
 
 * App.js
 
