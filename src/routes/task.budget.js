@@ -1,3 +1,6 @@
+import express from 'express';
+const router = express.Router();
+
 router.put('/project/:id/task/:taskId', async (req, res) => {
     try {
         const project = await project.findById(req.params.id);
@@ -10,5 +13,7 @@ router.put('/project/:id/task/:taskId', async (req, res) => {
         res.status(500).send('Error al actualizar la tarea');
     }
 });
+
+export default router;
 
 //This code gets the project by its ID and the task by its task ID, updates the completed status of the task and saves the updated project. The response is the updated task.

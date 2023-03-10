@@ -1,3 +1,6 @@
+import express from 'express';
+const router = express.Router();
+
 router.get('/project/:id/budget', async (req, res) => {
     try {
         const project = await project.findById(req.params.id);
@@ -8,5 +11,7 @@ router.get('/project/:id/budget', async (req, res) => {
         res.status(500).send('Error al obtener el presupuesto del proyecto');
     }
 });
+
+export default router;
 
 //This code gets the project by its ID and then calculates the total budget by adding the cost of all the tasks of the project and the initial budget of the project. The response is a JSON object with the budget value.
