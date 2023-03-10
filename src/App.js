@@ -24,6 +24,7 @@ app.use(
         optionsSuccessStatus: 204,
     })
 );
+
 app.use("/projects", allProjects);
 app.use("/", homeRoutes);
 app.use("/", authRoutes);
