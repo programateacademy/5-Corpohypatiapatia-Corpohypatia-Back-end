@@ -19,6 +19,19 @@ const projectSchema = mongoose.Schema({
         type: String,
         // required: true
     },
+    budget_value: {
+        type: Number, 
+        default: 0
+    },
+    budget_tasks: [{
+        name: String,
+        description: String,
+        cost: Number, 
+        completed:{
+            type: Boolean,
+            default:false
+        }
+    }],
     intervention_sector: {
         type: String,
         // required: true
