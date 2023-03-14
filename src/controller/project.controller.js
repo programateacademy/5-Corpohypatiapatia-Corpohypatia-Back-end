@@ -74,3 +74,12 @@ export const viewUser = async (request, response) => {
       response.status(404).json({ message: e.message });
     }
 }
+
+export const getProjectUser= async (request, response) => {
+    try {
+        const project = await Project.findById(request.params.id);
+        response.status(200).json(project);
+    } catch (e) {
+        response.status(404).json({message: e.message});
+    }
+}
