@@ -77,7 +77,8 @@ export const viewUser = async (request, response) => {
 
 export const getProjectUser= async (request, response) => {
     try {
-        const project = await Project.findById(request.params.id);
+        const project = await Project.findById({})
+        .select('project_title project_location project_duration imagePath problematic_summary beneficiaries general_objetive experience enabled');
         response.status(200).json(project);
     } catch (e) {
         response.status(404).json({message: e.message});
