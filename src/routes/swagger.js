@@ -9,7 +9,7 @@ const options = {
       version: "1.0.0"
     },
   },
-  apis: ["src/routes/project.routes.js",
+  apis: ["src/routes/all.project.js", "src/routes/project.routes.js",
     "src/schema/Project.js"]
 }
 
