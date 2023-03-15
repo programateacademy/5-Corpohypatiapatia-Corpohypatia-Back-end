@@ -5,7 +5,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "corpohypatia",
+      title: "Corpohypatia Projects",
       version: "1.0.0"
     },
   },
