@@ -14,6 +14,7 @@ const options = {
   apis: [
       "src/routes/all.project.js", 
       "src/routes/project.routes.js", 
+      "src/routes/auth.routes.js", 
       "src/schema/Project.js"]
 }
 
