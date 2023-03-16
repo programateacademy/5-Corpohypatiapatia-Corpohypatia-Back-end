@@ -2,6 +2,7 @@ import swaggerJSDoc  from"swagger-jsdoc";
 import swaggerUi  from "swagger-ui-express";
 
 const options = {
+  
   definition: {
     openapi: "3.0.0",
     info: {
@@ -9,8 +10,11 @@ const options = {
       version: "1.0.0"
     },
   },
-  apis: ["src/routes/all.project.js", "src/routes/project.routes.js",
-    "src/schema/Project.js"]
+  
+  apis: [
+      "src/routes/all.project.js", 
+      "src/routes/project.routes.js", 
+      "src/schema/Project.js"]
 }
 
 //Docs JSON format

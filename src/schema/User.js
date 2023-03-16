@@ -42,7 +42,7 @@ const userSchema = new Schema(
 );
 
 userSchema.statics.compareRole = async (role, receiveRol) => {
-  return await (role == receiveRol);
+  return role == receiveRol;
 };
 
 userSchema.statics.encryptPassword = async (password) => {

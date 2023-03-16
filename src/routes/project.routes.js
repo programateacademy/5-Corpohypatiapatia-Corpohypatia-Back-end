@@ -39,27 +39,27 @@ router.post(
  *     tags:
  *       - Projects admin
  *     description: Retrieve all projects
- *     parameters:
- *       - in: query
- *         name: mode
- *         schema:
- *           type: string
- *         description: The mode of a project
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: OK
  *         content:
  *           application/json:
  *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: "#/components/schemas/Project"
+ *       401:
+ *         description: Unauthorized
+ *         content:
+ *           application/json:
+ *             schema:
  *               type: object
  *               properties:
- *                 status:
+ *                 message:
  *                   type: string
- *                   example: OK
- *                 data:
- *                   type: array
- *                   items:
- *                     $ref: "#/components/schemas/Project"
+ *                   example: "Unauthorized"
  *       404:
  *         description: Not Found
  *         content:
@@ -72,7 +72,6 @@ router.post(
  *                   example: "Could not retrieve projects"
  */
 router.get("", authJwt.verifyToken, getProjects);
-
 router.get("/:id", authJwt.verifyToken, getProject);
 router.put("/:id", authJwt.verifyToken, editProject);
 router.delete("/:id", authJwt.verifyToken, deleteProject);
