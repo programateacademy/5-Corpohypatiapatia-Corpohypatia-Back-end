@@ -6,5 +6,4 @@ export const getHome = async (req, res) => {
 
   const role = await Role.find({ _id: { $in: user.role } });
   return res.status(200).json({ message: "¡Hola! " + user.firstNames + " " + user.lastNames });
-  
 };

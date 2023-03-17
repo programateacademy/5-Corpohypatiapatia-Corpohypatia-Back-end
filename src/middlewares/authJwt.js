@@ -14,7 +14,7 @@ export const verifyToken = async (req, res, next) => {
     const token = req.headers["x-access-token"];
 
     if (!token)
-      return res.status(200).json({ message: "No se proporcionó token." });
+      return res.status(204).json({ message: "No se proporcionó token." });
 
     // decodes the user id contained in the token
     const decode = jwt.verify(token, SECRET);
@@ -23,11 +23,11 @@ export const verifyToken = async (req, res, next) => {
     // check that the user exists
     const user = await User.findById(req.userId, { password: 0 });
     if (!user)
-      return res.status(200).json({ message: "Ningún usuario encontrado." });
+      return res.status(404).json({ message: "Ningún usuario encontrado." });
 
     next();
   } catch (error) {
-    return res.status(200).json({ message: "No autorizado." });
+    return res.status(401).json({ message: "No autorizado." });
   }
 };
 
@@ -42,5 +42,5 @@ export const isAdmin = async (req, res, next) => {
     return;
   }
 
-  return res.status(200).json({ message: "Requerir rol de administrador" });
+  return res.status(204).json({ message: "Requerir rol de administrador" });
 };

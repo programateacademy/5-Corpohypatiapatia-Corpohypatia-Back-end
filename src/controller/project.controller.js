@@ -1,4 +1,3 @@
-import { request, response } from "express";
 import Project from "../schema/Project.js";
 
 //Function to add a project
@@ -22,7 +21,7 @@ export const addProject = async (request, response) => {
 }
 
 //Function to get a project
-export const getProjects = async (request, response) => {
+export const getProjects = async (response) => {
     try {
         const projects = await Project.find({});
         response.status(200).json(projects);
@@ -48,11 +47,10 @@ export const editProject = async (request, response) => {
 
     try {
         await Project.updateOne({ _id: request.params.id }, editProject);
-        response.status(201).json(editProject);
+        response.status(200).json(editProject);
     } catch (e) {
         response.status(409).json({ message: e.message });
     }
-
 }
 
 //Function to delete a project
