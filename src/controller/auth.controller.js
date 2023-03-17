@@ -24,11 +24,7 @@ const transporter = nodemailer.createTransport({
 
 // login
 export const signUp = async (req, res) => {
-  // destructuring the request body
-  const { firstNames, lastNames, email, position, phone, password, role } =
-    req.body;
-
-  // instantiation of a new user and encryption of the password
+  const { firstNames, lastNames, email, position, phone, password } = req.body;
   const newUser = new User({
     firstNames,
     lastNames,
@@ -36,30 +32,12 @@ export const signUp = async (req, res) => {
     position,
     phone,
     password: await User.encryptPassword(password),
-    role,
+    role: '63e1b26e90beec64ebc7db09',
   });
 
-  /**
-   * search by name for the role in the role collection and
-   * returns the id of the role that matches
-   */
-  if (role) {
-    const foundRole = await Role.find({ name: { $in: role } });
-    newUser.role = foundRole.map((role) => role._id);
-  } else {
-    const role = await Role.findOne({ name: "user" });
-    newUser.role = [role._id];
-  }
-
-  // save the new user in the database
   const savedUser = await newUser.save();
-
-  // session token creation
-  const token = jwt.sign({ id: savedUser._id }, SECRET, {
-    expiresIn: 86400, // 24 hours
-  });
-
-  // respond with the created token
+  const token = jwt.sign({ id: savedUser._id }, SECRET, { expiresIn: 86400 });
+  
   res.status(200).json({ token });
 };
 

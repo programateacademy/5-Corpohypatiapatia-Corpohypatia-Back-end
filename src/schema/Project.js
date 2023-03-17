@@ -103,15 +103,6 @@ import mongoose from "mongoose";
 
 
 
-/**
- * @openapi
- * components:
- *   securitySchemes:
- *     jwt:
- *       type: http
- *       scheme: bearer
- *       bearerFormat: JWT
- */
 
 const projectSchema = mongoose.Schema({
 

@@ -34,7 +34,19 @@ router.post(
 
 /**
  * @openapi
- * /project/:
+ * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ *
+ * security:
+ *   - bearerAuth: []
+ */
+/**
+ * @openapi
+ * /project:
  *   get:
  *     tags:
  *       - Projects admin
@@ -49,7 +61,7 @@ router.post(
  *             schema:
  *               type: array
  *               items:
- *                 $ref: "#/components/schemas/Project"
+ *                 $ref: '#/components/schemas/Project'
  *       401:
  *         description: Unauthorized
  *         content:

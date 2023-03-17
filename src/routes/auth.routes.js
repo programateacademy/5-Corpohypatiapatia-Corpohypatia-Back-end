@@ -5,6 +5,19 @@ import * as authCtrl from "../controller/auth.controller.js";
 import * as authJwt from "../middlewares/authJwt.js";
 
 // create and protect routes
+
+/**
+ * @openapi
+ * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ *
+ * security:
+ *   - bearerAuth: []
+ */
 /**
  * @openapi
  * /signup:
@@ -74,13 +87,24 @@ import * as authJwt from "../middlewares/authJwt.js";
  */
 
 router.post("/signup", [authJwt.verifyToken, authJwt.isAdmin], authCtrl.signUp);
-
+/**
+ * @openapi
+ * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ *
+ * security:
+ *   - bearerAuth: []
+ */
 /**
  * @openapi
  * /signin:
  *   post:
- *     summary: Registrar usuario
- *     description: Registrar un nuevo usuario en la aplicación
+ *     summary: Iniciar sesión
+ *     description: Iniciar sesión en la aplicación
  *     tags:
  *       - Autenticación
  *     requestBody:
@@ -90,10 +114,6 @@ router.post("/signup", [authJwt.verifyToken, authJwt.isAdmin], authCtrl.signUp);
  *           schema:
  *             type: object
  *             properties:
- *               name:
- *                 type: string
- *                 description: Nombre del usuario
- *                 example: John Doe
  *               email:
  *                 type: string
  *                 description: Correo electrónico del usuario
@@ -102,17 +122,25 @@ router.post("/signup", [authJwt.verifyToken, authJwt.isAdmin], authCtrl.signUp);
  *                 type: string
  *                 description: Contraseña del usuario
  *                 example: password123
+ *               role:
+ *                 type: string
+ *                 enum: ["admin", "moderator", "user"]
+ *                 description: Rol del usuario. Si no se especifica, se asume que el rol es "user".
+ *                 example: "admin"
  *             required:
- *               - name
  *               - email
  *               - password
  *     responses:
  *       200:
- *         description: Registro de usuario exitoso
+ *         description: Inicio de sesión exitoso. Se devuelve un token de sesión.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Token'
  *       400:
- *         description: Datos de registro de usuario inválidos
- *       409:
- *         description: El correo electrónico ya está registrado
+ *         description: Datos de inicio de sesión inválidos o incompletos.
+ *       401:
+ *         description: Credenciales de inicio de sesión incorrectas.
  */
 router.post("/signin", authCtrl.signIn);
 router.post("/send-password-link", authCtrl.sendPasswordLink);
