@@ -7,8 +7,11 @@ import { Schema, model } from "mongoose";
  * components:
  *   schemas:
  *     Role:
- *       type: Schema.Types.ObjectId
- *       example: "63e1b26e90beec64ebc7db09"
+ *       type: object
+ *       properties:
+ *         name:
+ *          type: string
+ *          example: "admin"
  */
 const roleSchema = new Schema(
   {
