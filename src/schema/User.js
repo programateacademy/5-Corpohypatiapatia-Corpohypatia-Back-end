@@ -65,8 +65,8 @@ const userSchema = new Schema(
       required: true,
     },
     role: {
+      ref: "Role",
       type: Schema.Types.ObjectId,
-      default: "6414ce1126be373ad560c9c2"
     },
     enabled: {
       type: Boolean,
