@@ -16,7 +16,7 @@ app.use(express.json({ exteng: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(
     cors({
-        origin: "https://5-corpohypatiapatia-corpohypatia-front-end.vercel.app, *",
+        origin: "*",
         methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
         credentials: true,
         preflightContinue: false,
