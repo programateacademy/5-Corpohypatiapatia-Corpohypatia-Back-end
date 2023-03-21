@@ -83,8 +83,6 @@ userSchema.statics.compareRole = async (role, receiveRol) => {
   return (role == receiveRol);
 };
 
-const bcrypt = require('bcrypt');
-
 userSchema.statics.encryptPassword = async function(password) {
   const saltRounds = 12;
   try {
