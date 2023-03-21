@@ -1,4 +1,5 @@
 import Project from "../schema/Project.js";
+const { response } = require('express');
 
 //Function to add a project
 export const addProject = async (request, response) => {
@@ -16,14 +17,14 @@ export const addProject = async (request, response) => {
 }
 
 //Function to get a project
-export const getProjects = async (response) => {
+async function getProjects(request, response) {
     try {
-        const projects = await Project.find({});
-        response.status(200).json(projects);
+      const projects = await Project.find();
+      response.json(projects);
     } catch (e) {
-        response.status(404).json({ message: e.message });
+      response.status(404).json({ message: e.message });
     }
-}
+  }
 
 //Function to get a project by id
 export const getProject = async (request, response) => {
