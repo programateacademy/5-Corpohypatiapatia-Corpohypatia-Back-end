@@ -1,5 +1,5 @@
 import Project from "../schema/Project.js";
-const { response } = require('express');
+import { response } from 'express';
 
 //Function to add a project
 export const addProject = async (request, response) => {
@@ -17,14 +17,14 @@ export const addProject = async (request, response) => {
 }
 
 //Function to get a project
-export async function getProjects(request, response) {
+const getProjects = async (request, response) => {
     try {
-      const projects = await Project.find();
-      response.json(projects);
+        const projects = await Project.find();
+        response.json(projects);
     } catch (e) {
-      response.status(404).json({ message: e.message });
+        response.status(404).json({ message: e.message });
     }
-  }
+};
 
 //Function to get a project by id
 export const getProject = async (request, response) => {
@@ -52,8 +52,8 @@ export const editProject = async (request, response) => {
 //Function to delete a project
 export const deleteProject = async (request, response) => {
     try {
-        await Project.deleteOne({_id: request.params.id});
-        response.status(200).json({message: 'Proyecto eliminado de manera exitosa'});
+        await Project.deleteOne({ _id: request.params.id });
+        response.status(200).json({ message: 'Proyecto eliminado de manera exitosa' });
     } catch (e) {
         response.status(409).json({ message: e.message });
     }
@@ -78,3 +78,5 @@ export const getProjectUser = async (request, response) => {
         response.status(404).json({ message: e.message });
     }
 }
+
+export default getProjects;
