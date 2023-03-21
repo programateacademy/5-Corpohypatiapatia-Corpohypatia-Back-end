@@ -17,7 +17,7 @@ export const addProject = async (request, response) => {
 }
 
 //Function to get a project
-async function getProjects(request, response) {
+export async function getProjects(request, response) {
     try {
       const projects = await Project.find();
       response.json(projects);
