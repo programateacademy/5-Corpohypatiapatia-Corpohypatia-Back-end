@@ -1,17 +1,12 @@
 import { Schema, model } from "mongoose";
 
-
-
 /**
  * @openapi
  * components:
  *   schemas:
  *     Role:
- *       type: object
- *       properties:
- *         name:
- *          type: string
- *          example: "admin"
+ *       type: Schema.Types.ObjectId
+ *       example: "63e1b26e90beec64ebc7db09"
  */
 const roleSchema = new Schema(
   {

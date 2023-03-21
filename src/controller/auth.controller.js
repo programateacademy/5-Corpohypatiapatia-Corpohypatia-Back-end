@@ -47,10 +47,10 @@ export const signUp = async (req, res) => {
     const foundRole = await Role.find({ name: { $in: role } });
      foundRole.map((role) => role._id);
   } else {
-    const role = await Role.findOne({ name: "user" });
-    newUser.role = [role._id];
+    const defaultRole = await Role.findOne({ name: "user" });
+    newUser.role = [defaultRole._id];
   }
-
+  
   // save the new user in the database
   const savedUser = await newUser.save();
 
