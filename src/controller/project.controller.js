@@ -17,7 +17,7 @@ export const addProject = async (request, response) => {
 }
 
 //Function to get a project
-const getProjects = async (request, response) => {
+export const getProjects = async (request, response) => {
     try {
         const projects = await Project.find();
         response.json(projects);
@@ -78,5 +78,3 @@ export const getProjectUser = async (request, response) => {
         response.status(404).json({ message: e.message });
     }
 }
-
-export default getProjects;
