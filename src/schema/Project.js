@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-// import {appConfig} from "../config"
 
 /**
  * @openapi
@@ -108,51 +107,51 @@ const projectSchema = mongoose.Schema({
 
     project_title: {
         type: String,
-        // required: true
+        required: true
     },
     project_location: {
         type: String,
-        // required: true
+        required: true
     },
     project_duration: {
         type: String,
-        // required: true
+        required: true
     },
     project_budget: {
         type: String,
-        // required: true
+        required: true
     },
     intervention_sector: {
         type: String,
-        // required: true
+        required: true
     },
     imagePath: {
         type: String,
-        // required: true,
+        required: true,
     },
     problematic_summary: {
         type: String,
-        // required: true
+        required: true
     },
     beneficiaries: {
         type: String,
-        // required: true
+        required: true
     },
     executive_summary: {
         type: String,
-        // required: true
+        required: true
     },
     alignment: {
         type: String,
-        // required: true
+        required: true
     },
     methodology_summary: {
         type: String,
-        // required: true
+        required: true
     },
     general_objetive: {
         type: String,
-        // required: true
+        required: true
     },
     specific_objectives: [
         {
@@ -188,24 +187,22 @@ const projectSchema = mongoose.Schema({
         type: String
     },
     experience: {
-        type: String
+        type: String,
+        required: true
     },
     sustainability: {
-        type: String
+        type: String,
+        required: true
     },
     exit_strategy: {
-        type: String
+        type: String,
+        required: true
     },
     enabled: {
         type: Boolean
     }
 });
 
-// projectSchema.methods.setImagePath = function setImagePath (filename){
-//     const host = 'http://localhost'
-//     const port = 8000
-//     this.imagePath = `${host}:${port}/public/${filename}`
-// }
 
 const project = mongoose.model('project', projectSchema);
 
