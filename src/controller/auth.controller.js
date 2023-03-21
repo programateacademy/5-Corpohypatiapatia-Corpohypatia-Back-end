@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// login
+//registrer
 export const signUp = async (req, res) => {
   // destructuring the request body
   const { firstNames, lastNames, email, position, phone, password, role } =
@@ -45,7 +45,7 @@ export const signUp = async (req, res) => {
    */
   if (role) {
     const foundRole = await Role.find({ name: { $in: role } });
-    newUser.role = foundRole.map((role) => role._id);
+     foundRole.map((role) => role._id);
   } else {
     const role = await Role.findOne({ name: "user" });
     newUser.role = [role._id];
@@ -63,7 +63,7 @@ export const signUp = async (req, res) => {
   res.status(200).json({ token });
 };
 
-// register a new user
+// login
 export const signIn = async (req, res) => {
   /**
    * search for the user that matches the email in the request body

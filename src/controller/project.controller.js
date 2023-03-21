@@ -12,27 +12,27 @@ export const addProject = async (request, response) => {
         response.status(201).json(newProject);
         // console.log("exito")
     } catch (e) {
-        response.status(409).json({message: e.message});
+        response.status(409).json({ message: e.message });
     }
 }
 
 //Function to get a project
-export const getProjects = async (request, response) =>{
+export const getProjects = async (request, response) => {
     try {
         const projects = await Project.find({});
         response.status(200).json(projects);
     } catch (e) {
-        response.status(404).json({message: e.message});
+        response.status(404).json({ message: e.message });
     }
 }
 
 //Function to get a project by id
-export const getProject= async (request, response) => {
+export const getProject = async (request, response) => {
     try {
         const project = await Project.findById(request.params.id);
         response.status(200).json(project);
     } catch (e) {
-        response.status(404).json({message: e.message});
+        response.status(404).json({ message: e.message });
     }
 }
 
@@ -42,12 +42,12 @@ export const editProject = async (request, response) => {
     const editProject = new Project(project);
 
     try {
-        await Project.updateOne({_id: request.params.id}, editProject);
+        await Project.updateOne({ _id: request.params.id }, editProject);
         response.status(201).json(editProject);
     } catch (e) {
-        response.status(409).json({message: e.message});
+        response.status(409).json({ message: e.message });
     }
-    
+
 }
 
 //Function to delete a project
@@ -56,16 +56,26 @@ export const deleteProject = async (request, response) => {
         await Project.deleteOne({_id: request.params.id});
         response.status(200).json({message: 'Proyecto eliminado de manera exitosa'});
     } catch (e) {
-        response.status(409).json({message: e.message});
+        response.status(409).json({ message: e.message });
     }
 }
 
 export const viewUser = async (request, response) => {
     try {
-      const projects = await Project.find({})
-        .select('project_title project_location project_duration imagePath problematic_summary beneficiaries general_objetive experience');
-      response.status(200).json(projects);
+        const projects = await Project.find({})
+            .select('project_title project_location project_duration imagePath problematic_summary beneficiaries general_objetive experience enabled');
+        response.status(200).json(projects);
     } catch (e) {
-      response.status(404).json({ message: e.message });
+        response.status(404).json({ message: e.message });
     }
-  }
+}
+
+export const getProjectUser = async (request, response) => {
+    try {
+        const project = await Project.findById(request.params.id)
+            .select('project_title project_location project_duration imagePath problematic_summary beneficiaries general_objetive experience enabled');
+        response.status(200).json(project);
+    } catch (e) {
+        response.status(404).json({ message: e.message });
+    }
+}
