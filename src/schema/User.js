@@ -83,9 +83,17 @@ userSchema.statics.compareRole = async (role, receiveRol) => {
   return (role == receiveRol);
 };
 
-userSchema.statics.encryptPassword = async (password) => {
-  const salt = await bcrypt.genSalt(10);
-  return await bcrypt.hash(password, salt);
+const bcrypt = require('bcrypt');
+
+userSchema.statics.encryptPassword = async function(password) {
+  const saltRounds = 12;
+  try {
+    const salt = await bcrypt.genSalt(saltRounds);
+    const hash = await bcrypt.hash(password, salt);
+    return hash;
+  } catch (error) {
+    throw new Error('Error encriptando la contraseña', error);
+  }
 };
 
 userSchema.statics.comparePassword = async (password, receivePassword) => {
