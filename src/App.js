@@ -1,6 +1,4 @@
-import express from "express";
 import cors from "cors";
-
 import { createRoles } from "./libs/initialSetup.js";
 import authRoutes from "./routes/auth.routes.js";
 import homeRoutes from "./routes/home.routes.js";
@@ -8,8 +6,9 @@ import projectRoutes from "./routes/project.routes.js";
 import allProjects from "./routes/all.project.js";
 import RoutesUsers from './routes/route.user.js';
 import entidadroutes from "./controller/form.controller.js"
-
+import express from 'express';
 const app = express();
+
 await createRoles();
 
 app.use(express.json({ exteng: true }));

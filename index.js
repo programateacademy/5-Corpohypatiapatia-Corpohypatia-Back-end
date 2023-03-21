@@ -2,7 +2,6 @@ import app from "./src/App.js";
 import "./src/database/database.js"
 import swaggerDocs from './src/routes/swagger.js';
 
-
 // setting environment variables -- Port
 import { config } from "dotenv";
 config();

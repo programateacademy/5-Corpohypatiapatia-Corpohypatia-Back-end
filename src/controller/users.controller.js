@@ -6,7 +6,7 @@ export const getAllUsers = async (req, res) => {
         const users = await User.find()
         res.status(200).json(users)
     } catch (error) {
-        res.json({message: error.message})
+        res.json({ message: error.message })
     }
 }
 
@@ -14,11 +14,11 @@ export const getAllUsers = async (req, res) => {
 export const getUser = async (req, res) => {
     try {
         const id = req.params.id;
-        await User.findById({_id:id}).then( (user)=>{
+        await User.findById({ _id: id }).then((user) => {
             res.status(200).json(user)
         })
     } catch (error) {
-        res.json({message: error.message})
+        res.json({ message: error.message })
     }
 }
 
@@ -27,10 +27,10 @@ export const createUser = async (req, res) => {
     try {
         await User.create(req.body)
         res.status(200).json({
-            "message":"¡Registro creado correctamente!"
+            "message": "¡Registro creado correctamente!"
         })
     } catch (error) {
-        res.json({message: error.message})
+        res.json({ message: error.message })
     }
 }
 
@@ -38,14 +38,14 @@ export const createUser = async (req, res) => {
 export const updateUser = async (req, res) => {
     try {
         const id = req.params.id;
-        await User.updateOne({_id:id}, req.body).then( res => {
+        await User.updateOne({ _id: id }, req.body).then(res => {
             console.log(res)
         })
         res.status(200).json({
-            "message":"¡Registro actualizado correctamente!"
+            "message": "¡Registro actualizado correctamente!"
         })
     } catch (error) {
-        res.json({message: error.message})
+        res.json({ message: error.message })
     }
 }
 
@@ -53,13 +53,13 @@ export const updateUser = async (req, res) => {
 export const deleteUser = async (req, res) => {
     try {
         const id = req.params.id;
-        await User.deleteOne({ _id : id }).then( res =>{
+        await User.deleteOne({ _id: id }).then(res => {
             console.log(res)
         })
         res.status(200).json({
-            "message":"¡Registro borrado correctamente!"
+            "message": "¡Registro borrado correctamente!"
         })
     } catch (error) {
-        res.json({message: error.message})
+        res.json({ message: error.message })
     }
 }
