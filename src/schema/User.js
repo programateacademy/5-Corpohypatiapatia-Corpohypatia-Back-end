@@ -34,7 +34,9 @@ import bcrypt from "bcryptjs";
  *           format: password 
  *           description: La contraseña del usuario. No se devuelve en las respuestas de la API. 
  *         role:
- *           $ref: '#/components/schemas/Role'  
+ *           type: number 
+ *           description: admin o superadmin 
+ *           default: 6419ef677037c6f52031309b  
  *         enabled:
  *           type: boolean 
  *           default: true  
