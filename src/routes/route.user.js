@@ -7,12 +7,7 @@ import { createUser, deleteUser, getAllUsers, getUser, updateUser } from "../con
 
 //const variable will contain the methods of the routes
 const router = express.Router();
-/**
- * @openapi
- * tags:
- *   name: Users
- *   description: User management
- */
+
 /**
  * @openapi
  * components:
