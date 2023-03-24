@@ -7,12 +7,7 @@ import { createUser, deleteUser, getAllUsers, getUser, updateUser } from "../con
 
 //const variable will contain the methods of the routes
 const router = express.Router();
-/**
- * @openapi
- * tags:
- *   name: User
- *   description: User management
- */
+
 /**
  * @openapi
  * components:
@@ -93,7 +88,59 @@ router.get('/:id', getUser);
  *         description: Bad request  
  */
 router.post('/',createUser);
+
+/**
+ * @swagger
+ * /users/{id}:
+ *   put:
+ *     summary: Update an existing user
+ *     tags: 
+ *       - User
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The user ID.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/User"
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: User updated successfully  
+ *       400:
+ *         description: Bad request  
+ */
 router.put('/:id', updateUser);
+
+/**
+ * @swagger
+ * /users/{id}:
+ *   delete:
+ *     summary: Delete an existing user
+ *     tags: 
+ *       - User
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The user ID.
+*     security:
+*       - bearerAuth: []
+*     responses:
+*       200:
+*         description: User deleted successfully  
+*       400:
+*         description: Bad request  
+*/
 router.delete('/:id', deleteUser);
 
 export default router;
