@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 
+
 const logonAttemptsSchema = new Schema(
   {
     user: {
