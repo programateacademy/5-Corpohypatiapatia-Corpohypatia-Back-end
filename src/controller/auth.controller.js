@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// login
+//registrer
 export const signUp = async (req, res) => {
   // destructuring the request body
   const { firstNames, lastNames, email, position, phone, password, role } =
@@ -45,7 +45,7 @@ export const signUp = async (req, res) => {
    */
   if (role) {
     const foundRole = await Role.find({ name: { $in: role } });
-    newUser.role = foundRole.map((role) => role._id);
+     foundRole.map((role) => role._id);
   } else {
     const role = await Role.findOne({ name: "user" });
     newUser.role = [role._id];
@@ -63,7 +63,7 @@ export const signUp = async (req, res) => {
   res.status(200).json({ token });
 };
 
-// register a new user
+// login
 export const signIn = async (req, res) => {
   /**
    * search for the user that matches the email in the request body
@@ -74,16 +74,16 @@ export const signIn = async (req, res) => {
 
   // if the user does not exist
   if (!userFound)
-    return res.status(200).json({ message: "Usuario no encontrado." });
+    return res.status(404).json({ message: "Usuario no encontrado." });
 
   // check that the rol match
   const matchRole = await User.compareRole(req.body.role, userFound.role.name);
 
   //check that the user is enabled
   if (!userFound.enabled)
-    return res.status(200).json({ message: "El usuario está deshabilitado." });
+    return res.status(403).json({ message: "El usuario está deshabilitado." });
 
-  if (!matchRole) return res.status(200).json({ message: "Rol inválido" });
+  if (!matchRole) return res.status(403).json({ message: "Rol inválido" });
 
   // check that the rol match
   const matchPassword = await User.comparePassword(
@@ -123,7 +123,7 @@ export const signIn = async (req, res) => {
       }
     }
 
-    return res.status(200).json({ message: "Contraseña invalida." });
+    return res.status(406).json({ message: "Contraseña invalida." });
   }
 
   // deletes the logs of failed attempts that the user has
@@ -151,7 +151,7 @@ export const sendPasswordLink = async (req, res) => {
   const email = await req.body.email;
 
   if (!email) {
-    return res.status(200).json({ message: "Ingresa un correo válido." });
+    return res.status(406).json({ message: "Ingresa un correo válido." });
   }
 
   try {
@@ -160,12 +160,12 @@ export const sendPasswordLink = async (req, res) => {
     );
 
     if (!userFound) {
-      return res.status(200).json({ message: "Ingresa un correo válido." });
+      return res.status(406).json({ message: "Ingresa un correo válido." });
     }
 
     // verify that the user is an administrator
     if (!(userFound.role.name === "admin")) {
-      return res.status(200).json({ message: "Ingresa un correo válido." });
+      return res.status(406).json({ message: "Ingresa un correo válido." });
     }
 
     // token generate for reset password
@@ -183,7 +183,7 @@ export const sendPasswordLink = async (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log("error", error);
-        return res.status(200).json({ message: "El correo no fue enviado." });
+        return res.status(406).json({ message: "El correo no fue enviado." });
       } else {
         console.log("Email sent", info.response);
         return res.status(200).json({
